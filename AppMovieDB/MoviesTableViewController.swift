@@ -21,7 +21,10 @@ class MoviesTableViewController: UITableViewController {
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/550?api_key=b766a5163ab434a302a85bdb77bb41dd")
+        //let url = NSURL(string: "https://api.themoviedb.org/3/movie/550?api_key=b766a5163ab434a302a85bdb77bb41dd")
+         let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=4c2715aad883ba7fc2565f8d9b35c67b&language=en-US&page=20")
+        
+        
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let dataTask: URLSessionDataTask? = session.dataTask(with: url! as URL) {
             data, response, error in
@@ -104,7 +107,7 @@ class MoviesTableViewController: UITableViewController {
                 OperationQueue.main.addOperation({
                     self.movies[indexPath.row].image = img
                     cell.imageView?.image = img
-                })
+                })//
             }
         }
         
